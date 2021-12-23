@@ -1,0 +1,23 @@
+<div class="home-container d-flex justify-content-center">
+    <div class="border border-success border-5 rounded-pill w-75 h-75 text-center p-5">
+        <h1 class="mb-3"><span class="text-warning">WEL</span><span class="text-primary">COME</span></h1>
+        <h2 class="mb-3"><span class="text-danger">TO</span></h2>
+        <h1 class="mb-3"><span class="text-primary">NVC</span> STORE</h1>
+        <a routerLink="/about" class="btn btn-primary fs-5">View more</a>
+    </div>
+</div>
+<!-- ในหน้าHome ไม่ให้แสดง Product ที่หมด Stock(Stock = 0) **ngIf="" ดุที่หน้าService ในจำนวนสต็อค ที่เป็น 0 ถ้าเป็น 0 ไม่แสดงที่หน้าเพจ -->
+<div class="home-product d-flex flex-row bd-highlight justify-content-center mb-3">
+    <div *ngFor="let product of products" >
+        <div *ngIf="product.stock!=0">
+            <div class="card mx-2" style="width: 18rem;">
+                <img [src]="product.picture" class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p style="font-weight: bold;">{{product.price}} <span class="text-primary">Bath</span></p>
+                <a routerLink="/cart"  class="btn btn-success" style="font-weight: bold;">Buy</a>
+        </div>
+        </div>
+    </div>
+
+</div>
